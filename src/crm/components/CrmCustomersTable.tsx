@@ -203,7 +203,10 @@ export default function CrmCustomersTable({ onEditUser, onAddUser }: CrmCustomer
     return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
   };
 
-  const getCountryColor = (country: string): "default" | "primary" | "success" | "warning" | "info" => {
+  const getCountryColor = (country: string): "default" | "primary" | "success" | "warning" | "info" | "error" => {
+    if (country === "India") {
+      return "error";
+    }
     const hash = country.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
     const colors: Array<"default" | "primary" | "success" | "warning" | "info"> = ["primary", "success", "warning", "info"];
     return colors[hash % colors.length];
