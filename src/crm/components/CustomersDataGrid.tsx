@@ -101,7 +101,10 @@ export default function CustomersDataGrid({ onEditUser, onAddUser }: CustomersDa
       field: 'fullName',
       headerName: 'Full Name',
       width: 200,
-      valueGetter: (params) => `${params.row.name.first} ${params.row.name.last}`,
+      valueGetter: (params) => {
+        if (!params?.row?.name) return '';
+        return `${params.row.name.first} ${params.row.name.last}`;
+      },
     },
     {
       field: 'email',
@@ -112,7 +115,10 @@ export default function CustomersDataGrid({ onEditUser, onAddUser }: CustomersDa
       field: 'location',
       headerName: 'Location',
       width: 200,
-      valueGetter: (params) => `${params.row.location.city}, ${params.row.location.country}`,
+      valueGetter: (params) => {
+        if (!params?.row?.location) return '';
+        return `${params.row.location.city}, ${params.row.location.country}`;
+      },
     },
     {
       field: 'phone',
@@ -123,13 +129,19 @@ export default function CustomersDataGrid({ onEditUser, onAddUser }: CustomersDa
       field: 'age',
       headerName: 'Age',
       width: 80,
-      valueGetter: (params) => params.row.dob.age,
+      valueGetter: (params) => {
+        if (!params?.row?.dob) return '';
+        return params.row.dob.age;
+      },
     },
     {
       field: 'registered',
       headerName: 'Member Since',
       width: 120,
-      valueGetter: (params) => new Date(params.row.registered.date).getFullYear(),
+      valueGetter: (params) => {
+        if (!params?.row?.registered?.date) return '';
+        return new Date(params.row.registered.date).getFullYear();
+      },
     },
     {
       field: 'actions',
