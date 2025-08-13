@@ -8,7 +8,7 @@ import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import { DataGrid, GridColDef, GridRowParams, GridToolbar } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridRowParams, GridToolbar, GridSortModel } from '@mui/x-data-grid';
 import { Edit as EditIcon, Delete as DeleteIcon, Add as AddIcon } from '@mui/icons-material';
 import { usersApi, User } from '../services/usersApi';
 
