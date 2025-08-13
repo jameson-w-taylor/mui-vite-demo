@@ -83,19 +83,40 @@ export default function CustomersDataGrid({ onEditUser, onAddUser }: CustomersDa
       headerName: 'Avatar',
       width: 80,
       sortable: false,
-      renderCell: (params) => (
-        <Box
-          component="img"
-          src={params.row.picture.thumbnail}
-          alt={`${params.row.name.first} ${params.row.name.last}`}
-          sx={{
-            width: 40,
-            height: 40,
-            borderRadius: '50%',
-            objectFit: 'cover',
-          }}
-        />
-      ),
+      renderCell: (params) => {
+        if (!params?.row?.picture?.thumbnail || !params?.row?.name) {
+          return (
+            <Box
+              sx={{
+                width: 40,
+                height: 40,
+                borderRadius: '50%',
+                backgroundColor: 'grey.300',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '12px',
+                color: 'white',
+              }}
+            >
+              ?
+            </Box>
+          );
+        }
+        return (
+          <Box
+            component="img"
+            src={params.row.picture.thumbnail}
+            alt={`${params.row.name.first} ${params.row.name.last}`}
+            sx={{
+              width: 40,
+              height: 40,
+              borderRadius: '50%',
+              objectFit: 'cover',
+            }}
+          />
+        );
+      },
     },
     {
       field: 'fullName',
