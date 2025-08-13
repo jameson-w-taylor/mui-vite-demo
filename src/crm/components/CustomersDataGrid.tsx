@@ -25,7 +25,7 @@ export default function CustomersDataGrid({ onEditUser, onAddUser }: CustomersDa
   const [pageSize, setPageSize] = useState(25);
   const [total, setTotal] = useState(0);
   const [search, setSearch] = useState('');
-  const [sortModel, setSortModel] = useState([]);
+  const [sortModel, setSortModel] = useState<GridSortModel>([]);
 
   const fetchUsers = useCallback(async () => {
     try {
