@@ -186,7 +186,7 @@ export default function CustomerModal({ open, onClose, user, onSuccess }: Custom
             />
           )}
           <Typography variant="h6">
-            {isEdit ? 'Edit Customer' : 'Add New Customer'}
+            {isEdit ? 'Modify Customer' : 'Add New Customer'}
           </Typography>
         </Box>
       </DialogTitle>
