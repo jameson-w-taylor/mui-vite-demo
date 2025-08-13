@@ -169,28 +169,31 @@ export default function CustomersDataGrid({ onEditUser, onAddUser }: CustomersDa
       headerName: 'Actions',
       width: 120,
       sortable: false,
-      renderCell: (params) => (
-        <Stack direction="row" spacing={1}>
-          <Tooltip title="Edit User">
-            <IconButton
-              size="small"
-              onClick={() => onEditUser(params.row)}
-              color="primary"
-            >
-              <EditIcon fontSize="small" />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="Delete User">
-            <IconButton
-              size="small"
-              onClick={() => handleDelete(params.row)}
-              color="error"
-            >
-              <DeleteIcon fontSize="small" />
-            </IconButton>
-          </Tooltip>
-        </Stack>
-      ),
+      renderCell: (params) => {
+        if (!params?.row) return null;
+        return (
+          <Stack direction="row" spacing={1}>
+            <Tooltip title="Edit User">
+              <IconButton
+                size="small"
+                onClick={() => onEditUser(params.row)}
+                color="primary"
+              >
+                <EditIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Delete User">
+              <IconButton
+                size="small"
+                onClick={() => handleDelete(params.row)}
+                color="error"
+              >
+                <DeleteIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+          </Stack>
+        );
+      },
     },
   ];
 
